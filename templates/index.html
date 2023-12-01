@@ -13,19 +13,19 @@
         
         <form method="post" action="/predict">
             <div class="mb-3">
-                <label for="hole_length" class="form-label">Hole Length (m):</label>
-                <input type="text" id="hole_length" class="form-control" name="hole_length" placeholder="insert only a decimal value here" required>
+                <label class="form-label" for="hole_length">Hole Length (ft):</label>
+                <input class="form-control" type="text" name="hole_length" required>
+                
+                <label class="form-label" for="hole_size">Hole Size (inches):</label>
+                <input class="form-control" type="text" name="hole_size" required>
+    
+                <label class="form-label" for="washout_factor">Washout Factor:</label>
+                <input class="form-control" type="text" name="washout_factor" required>
+    
+                <label class="form-label" for="solid_waste_volume">Solid Waste Volume (bbls):</label>
+                <input class="form-control" type="text" name="solid_waste_volume" required>
+    
             </div>
-            <div class="mb-3">
-                <label for="diameter" class="form-label">Hole Diameter (mm):</label>
-                <input type="text" class="form-control" id="diameter" name="diameter" placeholder="insert only a decimal value here" required>
-            </div>
-            
-            <div class="mb-3">
-                <label for="washout_factor" class="form-label">Washout Factor:</label>
-                <input type="text" class="form-control" placeholder="insert only a decimal value here" name="washout_factor" id="washout_factor" required>
-            </div>
-            
             <button class="btn btn-outline-success" type="submit">Predict</button>
         </form>
        

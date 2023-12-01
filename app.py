@@ -1,5 +1,4 @@
-# Flask App
-
+# app.py
 from flask import Flask, render_template, request
 import joblib
 import numpy as np
@@ -17,12 +16,16 @@ def home():
 def predict():
     if request.method == 'POST':
         # Get input values from the form
-        hole_length = float(request.form['hole_length'])
-        diameter = float(request.form['diameter'])
+        hole_length_ft = float(request.form['hole_length'])
+        hole_size = float(request.form['hole_size'])
         washout_factor = float(request.form['washout_factor'])
+        solid_waste_volume = float(request.form['solid_waste_volume'])
+
+        # Convert hole length from feet to meters
+        hole_length_m = hole_length_ft * 0.3048
 
         # Make a prediction
-        input_data = np.array([[hole_length, diameter, washout_factor]])
+        input_data = np.array([[hole_length_m, hole_size, washout_factor, solid_waste_volume]])
         prediction = model.predict(input_data)
 
         return render_template('index.html', prediction=prediction[0])
