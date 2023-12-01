@@ -1,0 +1,38 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Substance Quantity Prediction</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Substance Quantity Prediction for Drilling</h1>
+        
+        <form method="post" action="/predict">
+            <div class="mb-3">
+                <label for="hole_length" class="form-label">Hole Length (m):</label>
+                <input type="text" id="hole_length" class="form-control" name="hole_length" placeholder="insert only a decimal value here" required>
+            </div>
+            <div class="mb-3">
+                <label for="diameter" class="form-label">Hole Diameter (mm):</label>
+                <input type="text" class="form-control" id="diameter" name="diameter" placeholder="insert only a decimal value here" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="washout_factor" class="form-label">Washout Factor:</label>
+                <input type="text" class="form-control" placeholder="insert only a decimal value here" name="washout_factor" id="washout_factor" required>
+            </div>
+            
+            <button class="btn btn-outline-success" type="submit">Predict</button>
+        </form>
+       
+
+        {% if prediction %}
+            <p class="mt-5">Estimated Quantity: {{ prediction }} units</p>
+        {% endif %}
+    </div>
+</body>
+</html>
